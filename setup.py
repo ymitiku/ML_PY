@@ -4,12 +4,35 @@ import os
 
 
 here = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(here,'README.md'),encoding="utf-8") as f:
+with open(os.path.join(here,'README.rst'),encoding="utf-8") as f:
     long_desc = f.read()
 
 setup(
     name = "ml_pl",
-    version = "0.0.1",
-    description="Python packge which contains method used in machine learning projects."
-    long_description=long_desc
+    version = "0.0.2.dev1",
+    description="Python packge which contains method used in machine learning projects.",
+    long_description=long_desc,
+    url = "https://github.com/mitiku1/ML_PY",
+    author = "Mitiku Yohannes",
+    author_email = "se.mitiku.yohannes@gmail.com",
+
+    classifiers = [
+        'Development Status :: 3 - Alpha',
+        'Topic :: Software Development',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+    ],
+    keywords='Machine learning tools',
+    packages=find_packages(exclude=['contrib', 'docs', 'main']),
+    install_requires=['keras',"tensorflow","opencv"],
+    project_urls={  # Optional
+        'Bug Reports': 'https://github.com/mitiku1/ML_PY/issues',
+        'Say Thanks!': 'https://saythanks.io/to/mitiku1',
+        'Source': 'https://github.com/mitiku1/ML_PY/',
+    },
 )
