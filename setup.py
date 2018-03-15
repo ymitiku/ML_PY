@@ -8,8 +8,8 @@ with open(os.path.join(here,'README.rst'),encoding="utf-8") as f:
     long_desc = f.read()
 
 setup(
-    name = "ml_pl",
-    version = "0.0.2.dev1",
+    name = "ml_py",
+    version = "0.0.2.dev7",
     description="Python packge which contains method used in machine learning projects.",
     long_description=long_desc,
     url = "https://github.com/mitiku1/ML_PY",
@@ -28,8 +28,8 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     keywords='Machine learning tools',
-    packages=find_packages(exclude=['contrib', 'docs', 'main']),
-    install_requires=['keras',"tensorflow","opencv"],
+    packages=find_packages(include=['ml_py', 'ml_py.image', 'main']),
+    install_requires=['keras',"tensorflow"],
     project_urls={  # Optional
         'Bug Reports': 'https://github.com/mitiku1/ML_PY/issues',
         'Say Thanks!': 'https://saythanks.io/to/mitiku1',
