@@ -52,12 +52,15 @@ class ImagePreprocessor(object):
             if e in ext:
                 output+=[file_name]
         return output
-    def read_all_images(self,directory,image_shape,ext =[".jpg",".png",".bmp"]):
+    def read_all_images(self,directory,image_shape,sorted=False,ext =[".jpg",".png",".bmp"],output_length=None):
         """Reads all images given inside directory.
         
         Arguments:
             directory {str} -- Path to directory
             image_shape {tuple} -- output images shape
+            sorted {bool} -- If the dataset is sorted for example for sequences. 
+            output_length {int} -- length of output array. Can be used to output fixed length array. 
+                If it is None then the length of output array is equal to number of images inside that directory.
         
         Keyword Arguments:
             ext {list} -- Extension of images to read (default: {[".jpg",".png",".bmp"]})
@@ -71,11 +74,17 @@ class ImagePreprocessor(object):
         assert len(image_shape)==2 or len(image_shape)==3,"Image Shape should be list of len 2 or len 3"
         
         image_files = self.__get_all_image_files(directory,ext)
-        if len(image_shape) == 3:
-            output = np.zeros((len(image_files),image_shape[0],image_shape[1],image_shape[2]))
+        if not(output_length is None):
+            length = output_length
         else:
-            output = np.zeros((len(image_files),image_shape[0],image_shape[1]))
-        for i in range(len(image_files)):
+            length = len(image_files)
+        if sorted:
+            image_files.sort()
+        if len(image_shape) == 3:
+            output = np.zeros((length,image_shape[0],image_shape[1],image_shape[2]))
+        else:
+            output = np.zeros((length,image_shape[0],image_shape[1]))
+        for i in range(length):
             image = self.read_image(os.path.join(directory,image_files[i]),image_shape)
             output[i] = image
         return output

@@ -5,6 +5,8 @@ ML py
 ML py is python package that have many classes and function usefull for machine learnining projects. I've developed this project while I was working on diffrent machine learining projects. 
 
 **Getting Started**
+"""""""""""""""""""
+`ml_py.image.ImagePreprocessor <https://github.com/mitiku1/ML_PY/blob/master/ml_py/image/__init__.py>`_
 
 
 **Installing**
