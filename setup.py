@@ -9,7 +9,7 @@ with open(os.path.join(here,'README.rst'),encoding="utf-8") as f:
 
 setup(
     name = "ml_py",
-    version = "0.0.2.dev7",
+    version = "0.0.001",
     description="Python packge which contains method used in machine learning projects.",
     long_description=long_desc,
     url = "https://github.com/mitiku1/ML_PY",
