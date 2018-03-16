@@ -1,6 +1,7 @@
 from __future__ import print_function
 import cv2
 import os
+import numpy as np
 
 class ImagePreprocessor(object):
     """Image preprocessor. Have methods to read image from path and flow directory.
@@ -69,7 +70,7 @@ class ImagePreprocessor(object):
             numpy.ndarray -- Numpy array for images inside directory
         """
 
-        assert os.path.exists(path), "Path '"+str(directory)+"' does not exist"
+        assert os.path.exists(directory), "Path '"+str(directory)+"' does not exist"
         assert type(str) or len(ext) == 0,"ext should contain at list one element"
         assert len(image_shape)==2 or len(image_shape)==3,"Image Shape should be list of len 2 or len 3"
         
